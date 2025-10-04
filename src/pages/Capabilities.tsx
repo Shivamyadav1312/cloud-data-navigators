@@ -128,39 +128,6 @@ const Capabilities = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <Card className="p-8 bg-gradient-secondary border-primary/20 max-w-3xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-4">Platform & Technology Expertise</h2>
-            <p className="text-muted-foreground mb-6">
-              We work with industry-leading platforms and technologies to deliver best-in-class data solutions
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {[
-                "Databricks",
-                "Snowflake",
-                "AWS",
-                "Azure",
-                "GCP",
-                "Spark",
-                "Kafka",
-                "Airflow",
-                "Power BI",
-                "Tableau",
-                "Looker",
-                "Python",
-                "SQL",
-                "dbt",
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-2 bg-secondary rounded-lg text-foreground font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </Card>
-        </div>
       </div>
     </div>
   );
