@@ -45,18 +45,40 @@ const Contact = () => {
   const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log("Form submitted:", data);
-    
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: result.message || "We'll get back to you within 24 hours.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Error",
+          description: result.message || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Network error. Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -75,7 +97,7 @@ const Contact = () => {
           <Card className="p-6 bg-card border-border text-center">
             <Mail className="w-10 h-10 text-primary mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Email Us</h3>
-            <p className="text-muted-foreground text-sm">contact@datafluent.com</p>
+            <p className="text-muted-foreground text-sm">contact@aiforbussiness.com</p>
           </Card>
           <Card className="p-6 bg-card border-border text-center">
             <Phone className="w-10 h-10 text-primary mx-auto mb-4" />
