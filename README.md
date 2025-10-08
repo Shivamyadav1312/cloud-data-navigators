@@ -120,8 +120,11 @@ NODE_ENV=development
 ### Production Build
 
 ```bash
-# Build for production
+# Build for production (local)
 npm run build:prod
+
+# Build for deployment (compatible with hosting platforms)
+npm run build:deploy
 
 # Start production server
 npm start

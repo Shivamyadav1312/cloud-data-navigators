@@ -17,7 +17,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild', // Use esbuild for better compatibility
+    target: 'es2015',
     rollupOptions: {
       output: {
         manualChunks: {

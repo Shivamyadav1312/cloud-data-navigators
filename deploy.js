@@ -25,7 +25,7 @@ try {
 // Step 2: Build production version
 console.log('\n🔨 Building production version...');
 try {
-  execSync('npm run build:prod', { stdio: 'inherit' });
+  execSync('npm run build:deploy', { stdio: 'inherit' });
   console.log('✅ Production build completed');
 } catch (error) {
   console.error('❌ Build failed:', error.message);
