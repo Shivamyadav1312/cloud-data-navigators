@@ -45,7 +45,7 @@ const DemoForm = ({
     
     try {
       const apiUrl = import.meta.env.PROD 
-        ? ':3001/api/demo'
+        ? 'api/demo'
         : 'http://localhost:3001/api/demo';
 
       const response = await fetch(apiUrl, {
