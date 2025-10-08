@@ -9,8 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
+const allowedOrigins = process.env.NODE_ENV === 'production' 
+  ? [process.env.FRONTEND_URL, 'https://your-domain.com'] // Add your actual domain
+  : ['http://localhost:8080', 'http://localhost:5173', 'http://localhost:3000'];
+
 app.use(cors({
-  origin: ['http://localhost:8080', 'http://localhost:5173', 'http://localhost:3000'], // Your frontend port and common React ports
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use(express.json());

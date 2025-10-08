@@ -134,8 +134,25 @@ const Home = () => {
             Specialized data solutions across multiple verticals
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            {["Retail", "Financial Services", "Healthcare", "Manufacturing", "Telecom", "Logistics", "Energy", "Education"].map((industry) => (
-              <Link to={`/industries/${industry.toLowerCase().replace(/\s+/g, "-")}`} key={industry}>
+            {[
+              "Retail & eCommerce", 
+              "Financial Services", 
+              "Healthcare", 
+              "Manufacturing", 
+              "Real Estate",
+              "Utilities & Energy", 
+              "FMCG", 
+              "Internet Businesses",
+              "Technology", 
+              "Agriculture", 
+              "Automotive", 
+              "Textiles & Apparel",
+              "Construction", 
+              "Trading", 
+              "Transportation & Logistics",
+              "Media & Entertainment"
+            ].map((industry) => (
+              <Link to={`/industries/${industry.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "")}`} key={industry}>
                 <Button variant="secondary" className="hover:bg-primary hover:text-primary-foreground">
                   {industry}
                 </Button>

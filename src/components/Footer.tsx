@@ -29,6 +29,18 @@ const Footer = () => {
     { path: "/industries/financial-services", label: "Financial Services" },
     { path: "/industries/healthcare", label: "Healthcare" },
     { path: "/industries/manufacturing", label: "Manufacturing" },
+    { path: "/industries/real-estate", label: "Real Estate" },
+    { path: "/industries/utilities-energy-power", label: "Utilities & Energy" },
+    { path: "/industries/fmcg", label: "FMCG" },
+    { path: "/industries/internet-businesses", label: "Internet Businesses" },
+    { path: "/industries/technology", label: "Technology" },
+    { path: "/industries/agriculture", label: "Agriculture" },
+    { path: "/industries/automotive", label: "Automotive" },
+    { path: "/industries/textiles-apparel", label: "Textiles & Apparel" },
+    { path: "/industries/construction", label: "Construction" },
+    { path: "/industries/trading", label: "Trading" },
+    { path: "/industries/logistics", label: "Transportation & Logistics" },
+    { path: "/industries/media-entertainment", label: "Media & Entertainment" },
   ];
 
   return (

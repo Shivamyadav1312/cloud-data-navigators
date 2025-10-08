@@ -44,9 +44,9 @@ const DemoForm = ({
     setIsSubmitting(true);
     
     try {
-      const apiUrl = window.location.hostname === 'localhost' 
-        ? 'http://localhost:3001/api/demo'
-        : '/api/demo';
+      const apiUrl = import.meta.env.PROD 
+        ? '/api/demo'
+        : 'http://localhost:3001/api/demo';
 
       const response = await fetch(apiUrl, {
         method: 'POST',
