@@ -50,7 +50,7 @@ const Contact = () => {
       const response = await fetch(
         window.location.hostname === 'localhost' 
           ? 'http://localhost:3001/api/contact'
-          : '/api/contact', 
+          : ':3001/api/contact', 
         {
         method: 'POST',
         headers: {
