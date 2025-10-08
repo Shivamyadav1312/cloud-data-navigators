@@ -13,9 +13,9 @@ const TermsOfService = () => {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             Terms of Service
           </h1>
-          <p className="text-xl text-muted-foreground">
+          {/* <p className="text-xl text-muted-foreground">
             Last updated: {new Date().toLocaleDateString()}
-          </p>
+          </p> */}
         </div>
 
         <Card className="p-8 bg-card border-border">

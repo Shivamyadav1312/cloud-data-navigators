@@ -37,9 +37,9 @@ const App = () => (
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/capabilities" element={<Capabilities />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
+          {/* <Route path="/privacy" element={<PrivacyPolicy />} /> */}
           <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/cookies" element={<CookiePolicy />} />
+          {/* <Route path="/cookies" element={<CookiePolicy />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

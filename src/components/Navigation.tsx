@@ -9,9 +9,9 @@ const Navigation = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
+    { path: "/services", label: "Custom Build Services" },
+    { path: "/solutions", label: "Product Plus Build Solutions" },
     { path: "/industries", label: "Industries" },
-    { path: "/solutions", label: "Solutions" },
     { path: "/capabilities", label: "Capabilities" },
     { path: "/contact", label: "Contact" },
   ];

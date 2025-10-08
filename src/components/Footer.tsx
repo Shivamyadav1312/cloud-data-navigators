@@ -168,13 +168,13 @@ const Footer = () => {
               © {currentYear} Datenintelligenz. All rights reserved.
             </div>
             <div className="flex space-x-6">
-              <Link 
+              {/* <Link 
                 to="/privacy" 
                 onClick={scrollToTop}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 Privacy Policy
-              </Link>
+              </Link> */}
               <Link 
                 to="/terms" 
                 onClick={scrollToTop}
@@ -182,13 +182,13 @@ const Footer = () => {
               >
                 Terms of Service
               </Link>
-              <Link 
+              {/* <Link 
                 to="/cookies" 
                 onClick={scrollToTop}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 Cookie Policy
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

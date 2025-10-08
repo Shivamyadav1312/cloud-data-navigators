@@ -86,7 +86,7 @@ const Home = () => {
             Transform Data Into Intelligence
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Expert data engineering and AI consulting services that power your digital transformation
+          Exhaustive Data Solutions and Consulting for Industry
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <DemoForm 
