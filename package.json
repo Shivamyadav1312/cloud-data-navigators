@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build:dev": "vite build --mode development --minify false",
     "build:prod": "vite build --mode production",
-    "build:deploy": "vite build --mode production --minify esbuild",
+    "build:deploy": "vite build --mode production",
+    "build:safe": "vite build --minify esbuild --mode production",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server/server.js",
@@ -16,7 +17,9 @@
     "dev:full": "concurrently \"npm run dev\" \"npm run server\"",
     "start": "npm run server:prod",
     "deploy:build": "npm run build:prod && npm run server:prod",
-    "deploy:prepare": "node deploy.js"
+    "deploy:prepare": "node deploy.js",
+    "build:test": "node build-test.js",
+    "build:fix": "node fix-build.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
