@@ -43,26 +43,46 @@ const DemoForm = ({
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Demo form submitted:', formData);
-    alert('Thank you! Your demo request has been submitted. We will contact you within 24 hours.');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      contactNumber: '',
-      companyName: '',
-      industry: '',
-      location: '',
-      budget: '',
-      preferredContact: ''
-    });
-    
-    setIsSubmitting(false);
-    setIsDialogOpen(false);
+    try {
+      const apiUrl = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3001/api/demo'
+        : '/api/demo';
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        alert('Thank you! Your demo request has been submitted successfully. We will contact you within 24 hours to schedule your demo.');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          contactNumber: '',
+          companyName: '',
+          industry: '',
+          location: '',
+          budget: '',
+          preferredContact: ''
+        });
+        
+        setIsDialogOpen(false);
+      } else {
+        throw new Error(result.message || 'Failed to submit demo request');
+      }
+    } catch (error) {
+      console.error('Error submitting demo request:', error);
+      alert('Sorry, there was an error submitting your demo request. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const industries = [

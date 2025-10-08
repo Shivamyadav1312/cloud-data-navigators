@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { sendContactEmail, testEmailConfig } from './emailService.js';
+import { sendContactEmail, sendDemoRequestEmail, testEmailConfig } from './emailService.js';
 
 dotenv.config();
 
@@ -108,6 +108,67 @@ app.post('/api/contact', async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Sorry, there was an error sending your message. Please try again later.',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+});
+
+// Demo form submission endpoint
+app.post('/api/demo', async (req, res) => {
+  try {
+    const { 
+      name, 
+      email, 
+      contactNumber, 
+      companyName, 
+      industry, 
+      location, 
+      budget, 
+      preferredContact 
+    } = req.body;
+
+    // Basic validation
+    if (!name || !email || !contactNumber || !companyName || !industry || !location) {
+      return res.status(400).json({
+        success: false,
+        message: 'Name, email, contact number, company name, industry, and location are required fields'
+      });
+    }
+
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide a valid email address'
+      });
+    }
+
+    // Send specialized demo request email
+    const result = await sendDemoRequestEmail({
+      name,
+      email,
+      contactNumber,
+      companyName,
+      industry,
+      location,
+      budget,
+      preferredContact
+    });
+
+    console.log(`Demo request submitted by ${name} (${email}) from ${companyName}`);
+
+    res.json({
+      success: true,
+      message: 'Your demo request has been submitted successfully! We\'ll contact you within 24 hours to schedule your demo.',
+      messageId: result.messageId
+    });
+
+  } catch (error) {
+    console.error('Error processing demo request:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Sorry, there was an error submitting your demo request. Please try again later.',
       error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
