@@ -10,10 +10,10 @@ const Footer = () => {
 
   const navigationLinks = [
     { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
-    { path: "/industries", label: "Industries" },
-    { path: "/solutions", label: "Solutions" },
+    { path: "/services", label: "Custom Build Services" },
+    { path: "/solutions", label: "Product Plus Build Solutions" },
     { path: "/capabilities", label: "Capabilities" },
+    { path: "/industries", label: "Industries" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -126,7 +126,7 @@ const Footer = () => {
 
           {/* Services Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Services</h3>
+            <h3 className="text-lg font-semibold">Services  </h3>
             <ul className="space-y-2">
               {serviceLinks.map((link) => (
                 <li key={link.path}>
