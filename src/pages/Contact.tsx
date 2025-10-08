@@ -46,7 +46,11 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(
+        window.location.hostname === 'localhost' 
+          ? 'http://localhost:3001/api/contact'
+          : '/api/contact', 
+        {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,7 +106,7 @@ const Contact = () => {
           <Card className="p-6 bg-card border-border text-center">
             <Phone className="w-10 h-10 text-primary mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Call Us</h3>
-            <p className="text-muted-foreground text-sm">+1 (555) 123-4567</p>
+            <p className="text-muted-foreground text-sm">+91-83747-96351</p>
           </Card>
           <Card className="p-6 bg-card border-border text-center">
             <MapPin className="w-10 h-10 text-primary mx-auto mb-4" />
