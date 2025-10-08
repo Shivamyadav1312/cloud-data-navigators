@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Target, Wrench } from "lucide-react";
+import DemoForm from "@/components/DemoForm";
 
 const IndustryDetail = () => {
   const { slug } = useParams();
@@ -11,7 +12,14 @@ const IndustryDetail = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  const industryDetails: Record<string, any> = {
+  interface IndustryDetail {
+    title: string;
+    description: string;
+    useCases: string[];
+    services: string[];
+  }
+
+  const industryDetails: Record<string, IndustryDetail> = {
     retail: {
       title: "Retail & eCommerce",
       description: "Transform your retail operations with data-driven insights for personalization, pricing, and supply chain excellence.",
@@ -217,11 +225,18 @@ const IndustryDetail = () => {
           <p className="text-muted-foreground mb-6">
             Let's discuss how our industry-specific expertise can drive measurable results for your organization.
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-gradient-primary hover:shadow-glow">
-              Schedule a Consultation
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <DemoForm 
+              buttonText="Get Industry Demo" 
+              buttonSize="lg" 
+              className="hover:shadow-glow"
+            />
+            <Link to="/contact">
+              <Button size="lg" variant="outline">
+                Schedule a Consultation
+              </Button>
+            </Link>
+          </div>
         </Card>
       </div>
     </div>

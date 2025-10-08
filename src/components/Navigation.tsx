@@ -11,6 +11,7 @@ const Navigation = () => {
     { path: "/", label: "Home" },
     { path: "/services", label: "Services" },
     { path: "/industries", label: "Industries" },
+    { path: "/solutions", label: "Solutions" },
     { path: "/capabilities", label: "Capabilities" },
     { path: "/contact", label: "Contact" },
   ];
@@ -20,7 +21,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            DataFluent
+          Datenintelligenz
           </Link>
 
           {/* Desktop Navigation */}

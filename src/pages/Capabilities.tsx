@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card } from "@/components/ui/card";
 import { Database, Zap, Cloud, BarChart3, Lock, Cog } from "lucide-react";
+import DemoForm from "@/components/DemoForm";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,9 +103,14 @@ const Capabilities = () => {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             Our Capabilities
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Comprehensive data and analytics expertise spanning the entire technology stack
           </p>
+          <DemoForm 
+            buttonText="See Our Capabilities" 
+            buttonSize="lg" 
+            className="hover:shadow-glow"
+          />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" ref={cardsRef}>
@@ -127,7 +133,19 @@ const Capabilities = () => {
             </Card>
           ))}
         </div>
-
+        
+        {/* CTA Section */}
+        <div className="text-center mt-16 pt-16 border-t border-border">
+          <h2 className="text-3xl font-bold mb-4">Ready to Leverage Our Expertise?</h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Discover how our comprehensive capabilities can accelerate your data initiatives
+          </p>
+          <DemoForm 
+            buttonText="Request Capabilities Demo" 
+            buttonSize="lg" 
+            className="hover:shadow-glow"
+          />
+        </div>
       </div>
     </div>
   );

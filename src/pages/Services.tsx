@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import DemoForm from "@/components/DemoForm";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,9 +86,14 @@ const Services = () => {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             Our Services
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Comprehensive data solutions tailored to your business needs
           </p>
+          <DemoForm 
+            buttonText="Schedule Service Demo" 
+            buttonSize="lg" 
+            className="hover:shadow-glow"
+          />
         </div>
 
         <div className="space-y-6" ref={cardsRef}>
@@ -114,6 +120,19 @@ const Services = () => {
               </Card>
             </Link>
           ))}
+        </div>
+        
+        {/* CTA Section */}
+        <div className="text-center mt-16 pt-16 border-t border-border">
+          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Let's discuss which services best fit your data transformation needs
+          </p>
+          <DemoForm 
+            buttonText="Book Consultation" 
+            buttonSize="lg" 
+            className="hover:shadow-glow"
+          />
         </div>
       </div>
     </div>

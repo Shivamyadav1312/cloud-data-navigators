@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import DemoForm from "@/components/DemoForm";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -11,7 +12,14 @@ const ServiceDetail = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  const serviceDetails: Record<string, any> = {
+  interface ServiceDetail {
+    title: string;
+    description: string;
+    capabilities: string[];
+    benefits: string[];
+  }
+
+  const serviceDetails: Record<string, ServiceDetail> = {
     "data-engineering": {
       title: "Data Engineering & Infrastructure",
       description: "Build robust, scalable data infrastructure that powers your analytics and AI initiatives.",
@@ -219,11 +227,18 @@ const ServiceDetail = () => {
           <p className="text-muted-foreground mb-6">
             Let's discuss how this service can transform your data operations and drive business value.
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-gradient-primary hover:shadow-glow">
-              Contact Us
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <DemoForm 
+              buttonText="Schedule Service Demo" 
+              buttonSize="lg" 
+              className="hover:shadow-glow"
+            />
+            <Link to="/contact">
+              <Button size="lg" variant="outline">
+                Contact Us
+              </Button>
+            </Link>
+          </div>
         </Card>
       </div>
     </div>

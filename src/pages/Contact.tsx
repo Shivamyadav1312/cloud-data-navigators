@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Mail, Phone, MapPin } from "lucide-react";
+import DemoForm from "@/components/DemoForm";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -92,9 +93,16 @@ const Contact = () => {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             Get In Touch
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Ready to transform your data strategy? Let's start a conversation.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <DemoForm 
+              buttonText="Schedule Quick Demo" 
+              buttonSize="lg" 
+              className="hover:shadow-glow"
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Database, Zap, Shield, TrendingUp, Cloud, Cpu } from "lucide-react";
+import DemoForm from "@/components/DemoForm";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,6 +89,11 @@ const Home = () => {
             Expert data engineering and AI consulting services that power your digital transformation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <DemoForm 
+              buttonText="Schedule Free Demo" 
+              buttonSize="lg" 
+              className="hover:shadow-glow"
+            />
             <Link to="/contact">
               <Button size="lg" className="bg-gradient-primary hover:shadow-glow">
                 Get Started
@@ -146,11 +152,18 @@ const Home = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Let's discuss how we can help you unlock the full potential of your data
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-gradient-primary hover:shadow-glow">
-              Contact Us Today
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <DemoForm 
+              buttonText="Book Your Demo Now" 
+              buttonSize="lg" 
+              className="hover:shadow-glow"
+            />
+            <Link to="/contact">
+              <Button size="lg" variant="outline">
+                Contact Us Today
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

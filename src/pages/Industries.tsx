@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import DemoForm from "@/components/DemoForm";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,9 +86,14 @@ const Industries = () => {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             Industry Expertise
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Specialized data solutions tailored to your industry's unique challenges
           </p>
+          <DemoForm 
+            buttonText="Get Industry Demo" 
+            buttonSize="lg" 
+            className="hover:shadow-glow"
+          />
         </div>
 
         <div className="grid md:grid-cols-2 gap-6" ref={cardsRef}>
@@ -112,6 +118,19 @@ const Industries = () => {
               </Card>
             </Link>
           ))}
+        </div>
+        
+        {/* CTA Section */}
+        <div className="text-center mt-16 pt-16 border-t border-border">
+          <h2 className="text-3xl font-bold mb-4">Transform Your Industry with Data</h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            See how our industry-specific solutions can accelerate your digital transformation
+          </p>
+          <DemoForm 
+            buttonText="Schedule Industry Demo" 
+            buttonSize="lg" 
+            className="hover:shadow-glow"
+          />
         </div>
       </div>
     </div>
